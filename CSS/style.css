@@ -1,0 +1,463 @@
+* {box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #0a0e0c; 
+  --border:      rgba(255, 255, 255, 0.12);
+  --accent:      #34d399;
+  --accent-cyan: #22d3ee;
+  --text-strong: #f1f5f9;
+  --text:        #c6d0cd;
+  --text-muted:  #8b9b97;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body:    "Inter", sans-serif;
+  --font-mono:    "JetBrains Mono", monospace;
+}
+
+/* CABEÇALHO */
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    padding: 40px 0;
+}
+
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.hero {
+    padding-top: 80px;
+    padding-bottom: 24px;
+}
+
+.hero h1 .name {
+    background: linear-gradient(100deg, var(--accent), var(--accent-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.4rem, 7vw, 4.2rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--text-strong);
+    margin-bottom: 22px;
+}
+
+.badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    background: rgba(52, 211, 153, 0.07);
+    border: 1px solid rgba(52, 211, 153, 0.28);
+    border-radius: 999px;
+    padding: 7px 16px;
+    margin-bottom: 28px;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2.4vw, 1.2rem);
+  color: var(--text-muted);
+  max-width: 460px;
+  margin-bottom: 38px;
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 20px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.social-btn:hover {
+  border-color: var(--accent);
+  background: rgba(52, 211, 153, 0.06);
+  transform: translateY(-2px);
+}
+
+section {
+  padding: 56px 0;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.eyebrow::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.eyebrow .count {
+    order: 1;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    letter-spacing: 0.1em;
+    text-transform: none;
+}
+
+/* SOBRE */
+.about {
+  padding-bottom: 24px;
+}
+
+.about p {
+  color: var(--text-muted);
+  margin-bottom: 18px;
+  max-width: 640px;
+}
+
+.skills {
+  padding-top: 24px;
+}
+
+/* CARDS DE HABILIDADES */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 22px;
+  transition: all 0.2s;
+}
+
+.skill-card:hover {
+  border-color: rgba(52, 211, 153, 0.3);
+  transform: translateY(-3px);
+}
+
+.skill-card .name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-strong);
+  margin-bottom: 4px;
+}
+
+.skill-card .level {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 640px) {
+  /* cards de habilidade viram uma coluna só */
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+section {
+    padding: 44px 0;
+  }
+
+.hero {
+    padding-top: 60px;
+  }
+}
+
+/* PROJETOS TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 34px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.project {
+  position: relative;
+  margin-bottom: 56px;
+}
+
+.project:last-child {
+  margin-bottom: 0;
+}
+
+.project::before {
+  content: "";
+  position: absolute;
+  left: -34px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.project .year {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.project-thumb {
+  aspect-ratio: 21 / 12;
+  background: 
+    radial-gradient(140% 120% at 30% 0%, rgba(52,211,153,0.18), transparent 55%),
+    radial-gradient(120% 120% at 90% 100%, rgba(34,211,238,0.18), transparent 55%),
+    #0d1311;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  position: relative;
+}
+
+.project-thumb .dots {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  display: flex;
+  gap: 6px;
+}
+
+.project-thumb .dots span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.project-body {
+  padding: 24px;
+}
+
+.project-body h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--text-strong);
+  margin-bottom: 12px;
+}
+
+.project-body .desc {
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+.project-thumb img,
+.project-thumb video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.project-thumb .project-video {
+  background: #0d1311;
+}
+
+.project-thumb {
+  overflow: hidden;
+}
+
+/* icone do github para encaminhar ao repositório */
+.project-head {
+  display: flex;                     
+  align-items: center;
+  justify-content: space-between;    
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.project-head h3 {
+  margin-bottom: 0;   
+}
+
+.project-head a {
+  color: var(--text-muted);
+  display: flex;
+  transition: color 0.2s;
+}
+
+.project-head a:hover {
+  color: var(--accent);   
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  padding: 5px 13px;
+}
+
+/* FUNDO ANIMADO */
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+  background-size: 46px 46px, 46px 46px;
+  animation: gridDrift 60s linear infinite;
+}
+
+.bg-glow {
+  position: fixed;
+  z-index: -2;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.glow-1 {
+  top: -120px; right: -80px;
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(52,211,153,0.10), transparent 70%);
+  animation: breathe 11s ease-in-out infinite;
+}
+
+.glow-2 {
+  bottom: -140px; left: -100px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(34,211,238,0.09), transparent 70%);
+  animation: breathe 14s ease-in-out infinite reverse;
+}
+
+.particles {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  bottom: -30px;
+  font-family: var(--font-mono);
+  color: rgba(52,211,153,0.14);
+  user-select: none;
+  animation: rise linear infinite;
+}
+
+.code-noise {
+  position: fixed;
+  z-index: -1;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: rgba(52, 211, 153, 0.10);
+  user-select: none;
+  pointer-events: none;
+  line-height: 1.7;
+  white-space: pre;
+}
+
+.code-noise.left  { top: 12%; left: 4%;  animation: floatY 9s ease-in-out infinite; }
+.code-noise.right { top: 40%; right: 3%; animation: floatY 13s ease-in-out infinite reverse; }
+
+/* ANIMAÇÕES*/
+@keyframes gridDrift {
+  from { background-position: 0 0, 0 0; }
+  to   { background-position: 46px 46px, 46px 46px; }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1);    opacity: 0.65; }
+  50%      { transform: scale(1.18); opacity: 1;    }
+}
+
+@keyframes rise {
+  0%   { transform: translateY(0);      opacity: 0; }
+  12%  { opacity: 1; }
+  88%  { opacity: 1; }
+  100% { transform: translateY(-105vh); opacity: 0; }
+}
+
+/* DESLIGAR ANIMAÇÃO */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* RODAPÉ */
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 28px 0;
+    margin-top: 40px;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;   /* empurra um pra cada ponta */
+    align-items: center;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
