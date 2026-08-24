@@ -12,12 +12,28 @@ areaSocials.innerHTML = dados.redes
 const areaSkills = document.getElementById("skills-grid");
 // Habilidades
 areaSkills.innerHTML = dados.habilidades
-  .map((skill) => `
-    <div class="skill-card">
-      <div class="name">${skill.nome}</div>
-      <div class="level">${skill.nivel}</div>
-    </div>
-  `)
+  .map((grupo, i) => {
+    // .map de dentro
+    const pills = grupo.itens
+      .map((item) => `
+        <span class="skill-pill">
+          ${item.icone ? `<i class="${item.icone}"></i>` : ""}
+          ${item.nome}
+        </span>
+      `)
+      .join("");
+
+    // .map de fora
+    return `
+      <div class="skill-category">
+        <div class="category-title">
+          <span class="category-num">${String(i + 1).padStart(2, "0")}</span>
+          ${grupo.categoria}
+        </div>
+        <div class="skill-pills">${pills}</div>
+      </div>
+    `;
+  })
   .join("");
 
 const areaTimeline = document.getElementById("timeline");

@@ -144,38 +144,59 @@ section {
 }
 
 /* CARDS DE HABILIDADES */
+/* container das categorias, empilhadas */
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.skill-card {
+/* cada bloco de categoria */
+.skill-category {
   background: rgba(255, 255, 255, 0.025);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 12px;
-  padding: 22px;
-  transition: all 0.2s;
+  border-radius: 14px;
+  padding: 24px;
 }
 
-.skill-card:hover {
-  border-color: rgba(52, 211, 153, 0.3);
-  transform: translateY(-3px);
-}
-
-.skill-card .name {
+/* título da categoria */
+.category-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--text-strong);
-  margin-bottom: 4px;
+  margin-bottom: 18px;
 }
 
-.skill-card .level {
+.category-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+}
+
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 999px;
+  padding: 6px 13px;
+  transition: border-color 0.2s;
 }
+.skill-pill:hover { border-color: rgba(52, 211, 153, 0.3); }
+.skill-pill i { font-size: 1rem; }   /* tamanho do logo */
+
 
 /* RESPONSIVIDADE */
 @media (max-width: 640px) {
@@ -459,5 +480,6 @@ footer {
     gap: 16px;
     font-family: var(--font-mono);
     font-size: 0.85rem;
+    padding: 0 50px;
     color: var(--text-muted);
 }
