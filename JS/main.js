@@ -53,7 +53,6 @@ areaTimeline.innerHTML = dados.projetos
       <article class="project">
         <div class="year">${projeto.ano}</div>
         <div class="project-card">
-
           <div class="project-thumb">
             ${projeto.video
               ? `<video class="project-video" autoplay muted loop playsinline${projeto.imagem ? ` poster="${projeto.imagem}"` : ""}>
@@ -61,9 +60,7 @@ areaTimeline.innerHTML = dados.projetos
                 </video>`
               : projeto.imagem
                 ? `<img src="${projeto.imagem}" alt="${projeto.titulo}">`
-                : `<span>preview do projeto</span>`
-}
-
+                : `<span>preview do projeto</span>`}
           </div>
 
           <div class="project-body">
@@ -73,12 +70,11 @@ areaTimeline.innerHTML = dados.projetos
               <a href="${projeto.repo}" target="_blank" rel="noopener" aria-label="Repositório de ${projeto.titulo}">
                 ${icones.github}
               </a>
-            ` : ""} 
+              ` : ""} 
             </div>
             <p class="desc">${projeto.descricao}</p>
             <div class="tags">${tagsHTML}</div>
           </div>
-
         </div>
       </article>
     `;

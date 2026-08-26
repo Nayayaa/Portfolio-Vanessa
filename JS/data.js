@@ -30,7 +30,7 @@ const dados = {
   {
     categoria: "Backend & APIs",
     itens: [
-      { nome: "Python",            icone: "devicon-python-plain colored" },
+      { nome: "Python",          icone: "devicon-python-plain colored" },
       { nome: "Java",            icone: "devicon-java-plain colored" },
       { nome: "Spring Boot",     icone: "devicon-spring-original colored" },
       { nome: "Spring Security", icone: "devicon-spring-plain colored" },
