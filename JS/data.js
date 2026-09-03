@@ -7,7 +7,7 @@ const icones = {
 const dados = {
     redes: [
     { rotulo: "GitHub",   url: "https://github.com/Nayayaa", icones: "github" },
-    { rotulo: "LinkedIn", url: "https://www.linkedin.com/in/vanessasml-nascimento-nayayaa", icones: "linkedin" },
+    { rotulo: "LinkedIn", url: "https://www.linkedin.com/in/vanessasml-nascimento", icones: "linkedin" },
     { rotulo: "Email",    url: "mailto:vanessasml.nascimento@hotmail.com", icones: "email"},
   ],
 
